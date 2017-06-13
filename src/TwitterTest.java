@@ -1,5 +1,8 @@
+import java.util.List;
+
 import twitter4j.Query;
 import twitter4j.QueryResult;
+import twitter4j.RateLimitStatus;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -21,17 +24,37 @@ public static void main (String[] args){
     Twitter twitter = teste.getInstance();
 	
 	
-	Query query = new Query("troinha");
-    QueryResult result = null;
+//	Query query = new Query("anitta");
+//    QueryResult result = null;
+//    query.setCount(4);
+//    query.setResultType(query.POPULAR);
+//	try {
+//		result = twitter.search(query);
+//	} catch (TwitterException e) {
+//		e.printStackTrace();
+//	}
+//	
+//    for (Status status : result.getTweets()) {
+//        System.out.println(status.getText());
+//    }
+    
+	Query query2 = new Query("boticario perfumes");
+	//Tamanho do retorno da consulta
+	query2.setCount(20);
+	QueryResult result2 = null;
+	//pode ser MIXED, POPULAR ou RECENT (representa categoria de twittes)
+    query2.setResultType(query2.MIXED);
 	try {
-		result = twitter.search(query);
+		result2 = twitter.search(query2);
 	} catch (TwitterException e) {
 		e.printStackTrace();
 	}
-    for (Status status : result.getTweets()) {
+	
+    for (Status status : result2.getTweets()) {
         System.out.println(status.getText());
     }
-}
-
+	
+	
+	}
 
 }
