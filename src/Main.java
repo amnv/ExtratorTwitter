@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+//f
 
 public class Main {
 	static List<String> negatives = new ArrayList<String>();
     static List<String> positives = new ArrayList<String>();
-
+    static List<String> teste;
     
 	public static void main(String[] args) throws Exception{
         arquivo();
