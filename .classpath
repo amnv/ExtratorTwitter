@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/UFPE/Documents/Extrator/lib/twitter4j-core-4.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/UFPE/workspace/Projeto2MW/weka-3.9.1.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/BRUNO CAVALCANTI/Documents/Projetos/ProjetoMineracao2v4/twitter4j-4.0.4/twitter4j-core/twitter4j-core-4.0.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/BRUNO CAVALCANTI/git/ExtratorTwitter/weka-3.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/BRUNO CAVALCANTI/Documents/Projetos/ProjetoMineracao2v4/twitter4j-4.0.4/lib/twitter4j-core-4.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
