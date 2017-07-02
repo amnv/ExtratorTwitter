@@ -7,7 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+
+import weka.core.expressionlanguage.common.Operators;
 
 public class RemoverStopWords {
 	
@@ -17,7 +20,6 @@ public class RemoverStopWords {
 		BufferedReader br = new BufferedReader(new FileReader(stopWordsList));
 		while(br.ready()){
 		   stopWordLista.add(br.readLine());
-		//   System.out.println(stopWordLista.get(aux));
 		   aux++;
 		}
 		
@@ -31,9 +33,9 @@ public class RemoverStopWords {
 		return a;
 	}
 
-	public void removerStopWords(String texto,String fileStopWordsList) throws IOException{
+	public void removerStopWords(String texto, String fileStopWordsList, String file) throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader(texto));
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("resultados/resultadoSemStopWords.txt"));
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("resultados/"+file+".txt"));
 		while(br.ready()){
 		   String linha = br.readLine();
 		   System.out.println(linha);
@@ -47,7 +49,7 @@ public class RemoverStopWords {
 	public String removeStopWords(String stopWordsList, String frase) throws IOException{
 		ArrayList<String> wordsList = new ArrayList<String>();
 		String[] stopwords = lerStop(stopWordsList);
-	    String tweet = frase;
+	    String tweet = frase.replaceAll("#", "").replaceAll("//?", "");
 	    String aux= "";
 	            tweet = tweet.trim().replaceAll("\\s+", " ");
 	            System.out.println("After trim:  " + tweet);
@@ -59,20 +61,15 @@ public class RemoverStopWords {
 	            }
 	            System.out.println("After for loop:  " + wordsList);
 
-	            //remove stop words here from the temp list
-	            for (int i = 0; i < wordsList.size(); i++) {
-	                // get the item as string
-	                for (int j = 0; j < stopwords.length; j++) {
-	                    if (stopwords[j].contains(wordsList.get(i))) {
-	                        wordsList.remove(i);
-	                    }
+	            for (int i = 0; i < stopwords.length; i++) {
+	                if(wordsList.contains(stopwords[i])){
+	                	wordsList.removeAll(Collections.singleton(stopwords[i]));;
 	                }
 	            }
 	            for (String str : wordsList) {
 	            	aux = aux+str+" ";
-	              //  System.out.print(str + " ");
 	            }
-	            aux = aux+ "\n";
+	            aux = aux.toUpperCase()+ "\n";
 	            System.out.println(aux);
 	            
 	return aux;
