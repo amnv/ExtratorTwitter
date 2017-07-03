@@ -23,7 +23,7 @@ public class Programa {
 		Scanner a = new Scanner(System.in);
 		
 		do{
-			System.out.println("Digite uma das opções: \n S: Samsung; \n A: Apple; \n L: LG\n");
+			System.out.println("Digite uma das opcoes: \n S: Samsung; \n A: Apple; \n L: LG\n");
 			pesquisa = a.nextLine();
 			if(pesquisa.equalsIgnoreCase("S")){
 				negative = "resultados/negatives_samsung.txt";
@@ -39,7 +39,38 @@ public class Programa {
 				rsw.removerStopWords(dir, stopWords, file);
 				
 				classificador();
+			}else if(pesquisa.equalsIgnoreCase("A")){
+				negative = "resultados/negatives_apple.txt";
+				file = "attributesNegatives";
+				rsw.removerStopWords(negative, stopWords, file);
+				
+				positive = "resultados/positives_apple.txt";
+				file = "attributesPositives";
+				rsw.removerStopWords(positive, stopWords, file);
+				
+				t.search("apple","pt",dir);
+				file = "toClassifier";
+				rsw.removerStopWords(dir, stopWords, file);
+				
+				classificador();
+			}else if(pesquisa.equalsIgnoreCase("L")){
+				negative = "resultados/negatives_lg.txt";
+				file = "attributesNegatives";
+				rsw.removerStopWords(negative, stopWords, file);
+				
+				positive = "resultados/positives_lg.txt";
+				file = "attributesPositives";
+				rsw.removerStopWords(positive, stopWords, file);
+				
+				t.search("lg","pt",dir);
+				file = "toClassifier";
+				rsw.removerStopWords(dir, stopWords, file);
+				
+				classificador();
+			}else{
+				System.out.println("Nao e opcao valida!!!");
 			}
+			
 			
 		}while(pesquisa.equalsIgnoreCase("S"));
 		a.close();
@@ -82,8 +113,14 @@ public class Programa {
 				String result;
 				result = tweets.classify(linha);
 			//	System.out.println(result);
-				if(result=="bom") bom++;
-				if(result=="ruim") ruim++;
+				if(result=="bom"){
+					System.out.println(linha+": E BOM");
+					bom++;
+				}
+				if(result=="ruim"){
+					System.out.println(linha+": E RUIM");
+					ruim++;
+				}
 				
 		}
 		
