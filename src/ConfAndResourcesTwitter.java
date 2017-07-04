@@ -86,7 +86,4 @@ public class ConfAndResourcesTwitter {
 	public void setQuery(Query query) {
 		this.query = query;
 	}  
-	
-	
-
 }

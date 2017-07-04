@@ -43,7 +43,6 @@ public class RemoverStopWords {
 		}
 		br.close();
 		buffWrite.close();
-		
 	}
 	
 	public String removeStopWords(String stopWordsList, String frase) throws IOException{
@@ -74,11 +73,7 @@ public class RemoverStopWords {
 	            
 	return aux;
 
-	}
-	
-	
-	
-		
+	}	
 }
 
 

@@ -35,11 +35,11 @@ public class TweetClassifier {
 	        //o ultimo atribuito representa a classe
 	        attributes.add(new Attribute("-class-", CLASSES));
 	        
-	        //Cria a instância passando os atributos
+	        //Cria a instancia passando os atributos
 	        instances = new Instances("Links", (ArrayList<Attribute>) attributes, tweets.size());
 	        instances.setClassIndex(attributes.size() - 1);
 	        
-	        //Cria uma instância pros tweets negativos e positivos
+	        //Cria uma instancia pros tweets negativos e positivos
 	        for (String tweet : negatives) {
 	            instances.add(createTwettsInstance(tweet, NEGATIVE));
 	        }
