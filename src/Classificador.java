@@ -17,7 +17,7 @@ public class Classificador {
 			String linha = brN.readLine();
 			negativos.add(linha);
 		}
-		
+		//
 		while(brP.ready()){
 			String linha = brP.readLine();
 			positivos.add(linha);
