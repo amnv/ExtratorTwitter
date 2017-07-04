@@ -49,20 +49,28 @@ public class RemoverStopWords {
 		ArrayList<String> wordsList = new ArrayList<String>();
 		String[] stopwords = lerStop(stopWordsList);
 	    String tweet = frase.replaceAll("#", "").replaceAll("//?", "");
+	    String[] stopwordsMa = new String[stopwords.length];
 	    String aux= "";
 	            tweet = tweet.trim().replaceAll("\\s+", " ");
+	            tweet = tweet.toUpperCase();
 	            System.out.println("After trim:  " + tweet);
 	            String[] words = tweet.split(" ");
 
 
 	            for (String word : words) {
-	                wordsList.add(word);
+	                wordsList.add(word.toUpperCase());
+	            }
+	            int index = 0;
+	            for(String stop : stopwords){
+	            	stop = stop.toUpperCase();
+		            stopwordsMa[index] = stop;
+	            	index ++;
 	            }
 	            System.out.println("After for loop:  " + wordsList);
 
-	            for (int i = 0; i < stopwords.length; i++) {
-	                if(wordsList.contains(stopwords[i])){
-	                	wordsList.removeAll(Collections.singleton(stopwords[i]));;
+	            for (int i = 0; i < stopwordsMa.length; i++) {
+	                if(wordsList.contains(stopwordsMa[i])){
+	                	wordsList.removeAll(Collections.singleton(stopwordsMa[i]));
 	                }
 	            }
 	            for (String str : wordsList) {
