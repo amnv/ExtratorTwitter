@@ -19,50 +19,49 @@ public class Programa {
 		RemoverStopWords rsw = new RemoverStopWords();
 		ConfAndResourcesTwitter twitter = new ConfAndResourcesTwitter();
 		String pesquisa = "";
-		String dir = "resultados/";
-		Classificador c = new Classificador();
-		Scanner a = new Scanner(System.in);
+		String textoTwitter;
+		Classificador classificador = new Classificador();
+		Scanner in = new Scanner(System.in);
 
 		do{
 			System.out.println("Digite uma das opcoes: \n S: Samsung; \n A: Apple; \n L: LG\n E: Exit");
-			pesquisa = a.nextLine();
+			pesquisa = in.nextLine();
 			if(pesquisa.equalsIgnoreCase("S")){
-				dir += "resultadosSamsung.txt";
+				textoTwitter = "resultados/resultadosSamsung.txt";
 				negative = "resultados/negatives_samsung.txt";
-				file = "attributesNegatives";
+				file = "resultados/attributesNegatives.txt";
 				rsw.removerStopWords(negative, stopWords, file);
 				
 				positive = "resultados/positives_samsung.txt";
-				file = "attributesPositives";
+				file = "resultados/attributesPositives.txt";
 				rsw.removerStopWords(positive, stopWords, file);
 				
-				twitter.search("samsung","pt",dir);
-				file = "toClassifier";
-				rsw.removerStopWords(dir, stopWords, file);
+				twitter.search("samsung","pt",textoTwitter);
+				file = "resultados/toClassifier.txt";
+				rsw.removerStopWords(textoTwitter, stopWords, file);
 				
-				c.classificador();
+				classificador.classificador();
 			}
 			else if (pesquisa.equalsIgnoreCase("A")){
 				negative = "resultados/negatives_apple.txt";
 				file = "attributesNegatives";
-				dir+= "resultadosApple.txt";
+				textoTwitter = "resultados/resultadosApple.txt";
 				
 				rsw.removerStopWords(negative, stopWords, file);
 				
 				positive = "resultados/positives_apple.txt";
-				file = "attributesPositives";
+				file = "resultados/attributesPositives.txt";
 				rsw.removerStopWords(positive, stopWords, file);
 				
-				twitter.search("apple", "pt", dir);
-				file = "toClassifier";
-				rsw.removerStopWords(dir, stopWords, file);
+				twitter.search("apple", "pt", textoTwitter);
+				file = "resultados/toClassifier.txt";
+				rsw.removerStopWords(textoTwitter, stopWords, file);
 				
-				c.classificador();
-				
+				classificador.classificador();				
 			}
 			
 		}while(!pesquisa.equalsIgnoreCase("E"));
-		a.close();
+		in.close();
 		
 	}
 }

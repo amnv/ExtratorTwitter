@@ -35,7 +35,7 @@ public class RemoverStopWords {
 
 	public void removerStopWords(String texto, String fileStopWordsList, String file) throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader(texto));
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("resultados/"+file+".txt"));
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(file));
 		while(br.ready()){
 		   String linha = br.readLine();
 		   System.out.println(linha);
