@@ -39,8 +39,8 @@ public class Classificador {
 		for(String linha:pClassificar){
 				String result;
 				result = tweets.classify(linha);
-			//	System.out.println(result);
-				if(result=="bom") bom++;
+				System.out.println(linha + " " + result);
+				if(result=="bom")  bom++;
 				if(result=="ruim") ruim++;
 				
 		}

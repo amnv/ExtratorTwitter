@@ -23,7 +23,8 @@ public class Programa {
 		Classificador classificador = new Classificador();
 		Scanner in = new Scanner(System.in);
 		
-		
+		//descomenta isso aqui e comenta o resto
+		//twitter.search("lg", "pt", "resultados/resultadosLG");
 
 		do{
 
@@ -39,8 +40,8 @@ public class Programa {
 				file = "resultados/attributesPositives.txt";
 				rsw.removerStopWords(positive, stopWords, file);
 				
-				twitter.search("samsung","pt",textoTwitter);
-				file = "resultados/toClassifier.txt";
+				//twitter.search("samsung","pt",textoTwitter);
+				file = "resultados/resultadosSamsung.txt";
 				rsw.removerStopWords(textoTwitter, stopWords, file);
 				
 				classificador.classificador();
@@ -53,6 +54,23 @@ public class Programa {
 				rsw.removerStopWords(negative, stopWords, file);
 				
 				positive = "resultados/positives_apple.txt";
+				file = "resultados/attributesPositives.txt";
+				rsw.removerStopWords(positive, stopWords, file);
+				
+				twitter.search("apple", "pt", textoTwitter);
+				file = "resultados/toClassifier.txt";
+				rsw.removerStopWords(textoTwitter, stopWords, file);
+				
+				classificador.classificador();				
+			}
+			else if (pesquisa.equalsIgnoreCase("L")) {
+				negative = "resultados/negatives_lg.txt";
+				file = "attributesNegatives";
+				textoTwitter = "resultados/resultadosLG.txt";
+				
+				rsw.removerStopWords(negative, stopWords, file);
+				
+				positive = "resultados/positives_lg.txt";
 				file = "resultados/attributesPositives.txt";
 				rsw.removerStopWords(positive, stopWords, file);
 				
