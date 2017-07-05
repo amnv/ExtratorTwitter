@@ -22,6 +22,8 @@ public class Programa {
 		String textoTwitter;
 		Classificador classificador = new Classificador();
 		Scanner in = new Scanner(System.in);
+		
+		
 
 		do{
 
