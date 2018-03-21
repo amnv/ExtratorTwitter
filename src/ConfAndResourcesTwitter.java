@@ -18,10 +18,10 @@ public class ConfAndResourcesTwitter {
 	public ConfAndResourcesTwitter (){
 		configuracao = new ConfigurationBuilder();
 		configuracao.setDebugEnabled(true).
-		setOAuthConsumerKey("cY9ptEs8RMG7SYD5xw8KNBtHG").
-		setOAuthConsumerSecret("X5BSJbl00hWXwdqGQqYGxGTq9tZgRyOscyI8vFeMG7GKOanqaN").
-		setOAuthAccessToken("844992565678133250-1QEEWbIogh6reL7zzJPTeDCfAsW9c0p").
-		setOAuthAccessTokenSecret("gLstIcuif3ob7qK4eF1JIjefcumqeF9BkzWh2ogDJvmOm");
+		setOAuthConsumerKey("adicione um que funcione").
+		setOAuthConsumerSecret("adicione um que funcione").
+		setOAuthAccessToken("adicione um que funcione").
+		setOAuthAccessTokenSecret("adicione um que funcione");
 		twitterFactory = new TwitterFactory(configuracao.build());
 		twitter = twitterFactory.getInstance();
 		query = new Query();
